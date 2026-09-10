@@ -43,7 +43,9 @@ export default function Contact() {
           
 
           <a
-            href="#"
+            href="https://instagram.com/kam_good_day"
+            target="_blank"
+            rel="noreferrer"
             className="flex items-center gap-2 text-zinc-400 transition hover:text-white"
           >
             <Camera size={20} />

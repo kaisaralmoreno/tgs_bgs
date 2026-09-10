@@ -1,14 +1,13 @@
 export const skills = [
-  "next js",
-  "html",
-  "css",
-  "javascript",
-  "iot",
-  "tailwind css",
-  "supabase",
-  "figma",
-  "mysql",
-  ""
+  "Next.js",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "IoT",
+  "Tailwind CSS",
+  "Supabase",
+  "Figma",
+  "MySQL",
 ];
 
 export const projects = [
@@ -20,29 +19,29 @@ export const projects = [
     description:
       "Platform berita dengan tampilan responsif dan berbagai kategori informasi.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-    image: "/images/project-1.jpg",
+    image: "/project1.png",
     link: "#",
   },
   {
     id: 2,
     number: "02",
-    title: "Sistem Pelanggaran Siswa",
+    title: "Web Ecommerce",
     category: "Web Application",
     description:
-      "Aplikasi untuk mencatat dan mengelola data pelanggaran siswa secara digital.",
-    technologies: ["Next.js", "Supabase", "PostgreSQL"],
-    image: "/images/project-2.jpg",
+      "Aplikasi untuk membeli barang secara online dengan tampilan yang responsif dan modern.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: "/project2.png",
     link: "#",
   },
   {
     id: 3,
     number: "03",
-    title: "Database Management",
-    category: "Database",
+    title: "KAISAR PERCUSION",
+    category: "Web Application",
     description:
-      "Berbagai proyek perancangan database seperti perpustakaan, koperasi, dan rumah sakit.",
-    technologies: ["MySQL", "SQL"],
-    image: "/images/project-3.jpg",
+      "Aplikasi jual beli alat drumband yang sedang dalam tahap pengembangan.",
+    technologies: ["Figma"],
+    image: "/project3.png",
     link: "#",
   },
 ];

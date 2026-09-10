@@ -36,6 +36,16 @@ export default function Projects() {
               className="group block rounded-2xl border border-white/10 p-6 transition hover:border-white/30 hover:bg-white/3 md:p-10"
             >
 
+              {project.image && (
+                <div className="mb-8 overflow-hidden rounded-xl border border-white/10">
+                  <img
+                    src={project.image}
+                    alt={`Preview ${project.title}`}
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+              )}
+
               <div className="grid gap-8 md:grid-cols-[100px_1fr_auto]">
 
                 <span className="text-2xl text-zinc-600">
