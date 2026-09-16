@@ -14,7 +14,7 @@ export default function Navbar() {
           href="#home"
           className="text-xl font-bold tracking-tighter"
         >
-          KAISAR<span className="text-zinc-500">.</span>
+          KAISAR<span className="text-sky-400">.</span>
         </a>
 
         <div className="hidden gap-8 text-sm text-zinc-400 md:flex">
@@ -41,7 +41,7 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden rounded-full border border-white/20 px-5 py-2 text-sm transition hover:bg-white hover:text-black md:block"
+          className="hidden rounded-full border border-sky-500/50 px-5 py-2 text-sm transition hover:bg-sky-600 hover:text-white md:block"
         >
           Let's Talk
         </a>

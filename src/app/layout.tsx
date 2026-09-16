@@ -14,7 +14,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/project1.png"
+          aria-hidden="true"
+          className="site-background-video"
+        >
+          <source src="/videos/vidio%201.mp4" type="video/mp4" />
+        </video>
+        <div className="site-content">{children}</div>
       </body>
     </html>
   );

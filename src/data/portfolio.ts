@@ -15,12 +15,13 @@ export const projects = [
     id: 1,
     number: "01",
     title: "KAISAR News",
-    category: "Web Development",
+    category: "Web Development", 
     description:
       "Platform berita dengan tampilan responsif dan berbagai kategori informasi.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
     image: "/project1.png",
-    link: "#",
+    link: "/project/kaisar_news",
+    featured: false,
   },
   {
     id: 2,
@@ -31,7 +32,8 @@ export const projects = [
       "Aplikasi untuk membeli barang secara online dengan tampilan yang responsif dan modern.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
     image: "/project2.png",
-    link: "#",
+    link: "/project/web_ecommerce",
+    featured: true,
   },
   {
     id: 3,
@@ -42,6 +44,7 @@ export const projects = [
       "Aplikasi jual beli alat drumband yang sedang dalam tahap pengembangan.",
     technologies: ["Figma"],
     image: "/project3.png",
-    link: "#",
+    link: "/project/kaisar_percusion",
+    featured: false,
   },
 ];
