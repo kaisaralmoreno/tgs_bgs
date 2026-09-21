@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, Search } from "lucide-react";
-import { projects } from "@/data/portfolio";
+import { supabase } from "@/lib/supabase";
+import type { Project } from "@/data/portfolio";
 
 type ProjectsProps = {
   search: string;
@@ -10,7 +11,31 @@ type ProjectsProps = {
 };
 
 export default function Projects({ search, onSearchChange }: ProjectsProps) {
+  const [projects, setProjects] = useState<Project[]>([]);
   const [activeFilter, setActiveFilter] = useState("All");
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function loadProjects() {
+      const { data, error: queryError } = await supabase
+        .from("projects")
+        .select(
+          "id, project_number, title, category, description, technologies, image, link, featured",
+        )
+        .order("id", { ascending: true });
+
+      if (queryError) {
+        setError(queryError.message);
+      } else {
+        setProjects(data ?? []);
+      }
+
+      setIsLoading(false);
+    }
+
+    loadProjects();
+  }, []);
 
   const categories = [
     "All",
@@ -45,7 +70,7 @@ export default function Projects({ search, onSearchChange }: ProjectsProps) {
 
       return searchableText.includes(keyword);
     });
-  }, [activeFilter, search]);
+  }, [activeFilter, projects, search]);
 
   return (
     <section id="projects" className="px-6 pb-28 pt-36 md:pt-40">
@@ -114,7 +139,13 @@ export default function Projects({ search, onSearchChange }: ProjectsProps) {
           </p>
         )}
 
-        {filteredProjects.length === 0 ? (
+        {isLoading ? (
+          <p className="py-10 text-zinc-400">Loading projects...</p>
+        ) : error ? (
+          <div className="rounded-2xl border border-red-500/30 bg-red-950/20 p-6 text-red-300">
+            Failed to load projects: {error}
+          </div>
+        ) : filteredProjects.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-white/10 bg-zinc-950/30 p-10 text-center">
             <p className="text-xl font-medium text-white">No projects found.</p>
             <p className="mt-2 text-zinc-400">
@@ -136,7 +167,7 @@ export default function Projects({ search, onSearchChange }: ProjectsProps) {
             {filteredProjects.map((project) => (
               <a
                 key={project.id}
-                href={project.link}
+                href={project.link ?? "#"}
                 className="group block rounded-2xl border border-white/10 p-6 transition hover:border-sky-500/60 hover:bg-sky-950/20 md:p-10"
               >
                 {project.image && (
@@ -150,7 +181,7 @@ export default function Projects({ search, onSearchChange }: ProjectsProps) {
                 )}
 
                 <div className="grid gap-8 md:grid-cols-[100px_1fr_auto]">
-                  <span className="text-2xl text-zinc-600">{project.number}</span>
+                  <span className="text-2xl text-zinc-600">{project.project_number}</span>
 
                   <div>
                     <p className="mb-3 text-sm uppercase tracking-widest text-zinc-500">
