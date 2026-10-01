@@ -110,7 +110,8 @@ export default function NotFound() {
           </div>
 
           <span className="not-found-number" aria-label="Error 303">
-            404
+            303
+            
           </span>
 
           <div className="not-found-header">

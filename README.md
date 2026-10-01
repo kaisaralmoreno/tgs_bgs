@@ -105,6 +105,23 @@ npm run start    # Menjalankan build production
 | `/project/web_ecommerce` | Detail proyek Web Ecommerce |
 | `/project/kaisar_percusion` | Detail proyek KAISAR PERCUSION |
 
+## Admin & Supabase
+
+1. Jalankan ulang `supabase/schema.sql` pada Supabase SQL Editor. Schema membuat/melengkapi tabel `projects`, `profiles`, dan `skills`, sinkronisasi profil dengan Supabase Auth, serta RLS.
+2. Buat akun admin di Supabase Dashboard melalui **Authentication → Users**.
+3. Tetapkan role akun tersebut melalui SQL Editor:
+
+	```sql
+	update public.profiles
+	set role = 'admin'
+	where email = 'email-admin-anda@example.com';
+	```
+
+4. Tambahkan `ADMIN_DOORPASS` ke `.env.local` menggunakan secret acak yang panjang. Jangan gunakan password contoh dari `.env.example`, dan jangan commit `.env.local`.
+5. Restart server development, lalu buka `/admin?doorpass=<secret>` untuk menuju form login Supabase di `/admin/login`.
+
+Doorpass menjadi gerbang tambahan. Login Supabase dan role `admin` tetap diperlukan untuk halaman serta Server Action admin. Karena doorpass berada di query URL, browser history dan access log dapat menyimpannya; gunakan secret acak yang kuat dan rotasi setelah dibagikan.
+
 ## Konfigurasi Kontak
 
 Alamat email pada tombol kontak saat ini masih menggunakan alamat contoh `emailkamu@gmail.com`. Ganti alamat tersebut di `src/components/Contact.tsx` sebelum dipublikasikan.

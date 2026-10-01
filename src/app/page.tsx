@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import MusicPlayer from "@/components/MusicPlayer";
+import Navbar from "@/components/layout/Navbar";
+import Hero from "@/features/dashboard/components/Hero";
+import About from "@/features/dashboard/components/About";
+import Skills from "@/features/dashboard/components/Skills";
+import Projects from "@/features/dashboard/components/Projects";
+import Contact from "@/features/dashboard/components/Contact";
+import Footer from "@/components/layout/Footer";
+import MusicPlayer from "@/components/common/MusicPlayer";
 
 export default function Home() {
   const [search, setSearch] = useState("");
