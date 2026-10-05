@@ -26,8 +26,8 @@ export default function RootLayout({
           muted
           loop
           playsInline
-          preload="metadata"
-          poster="/project1.png"
+          preload="none"
+         poster="/project1.webp"
           aria-hidden="true"
           className="site-background-video"
         >
